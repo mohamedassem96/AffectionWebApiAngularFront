@@ -1,0 +1,17 @@
+<table class="table table-hover">
+  <thead>
+    <th>fullName</th>
+    <th>position</th>
+    <th>empCode</th>
+    <th>mobile</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employeeService.employeeList">
+      <td (click)="populateForm(employee)">{{ employee.fullName }}</td>
+      <td (click)="populateForm(employee)">{{ employee.position }}</td>
+      <td (click)="populateForm(employee)">{{ employee.empCode }}</td>
+      <td (click)="populateForm(employee)">{{ employee.mobile }}</td>
+      <td><button class="btn btn-danger" (click)="onDelete(employee.employeeID)">X</button></td>
+    </tr>
+  </tbody>
+</table>

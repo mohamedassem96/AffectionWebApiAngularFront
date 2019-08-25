@@ -1,0 +1,83 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" autocomplete="off">
+  <input
+    type="hidden"
+    name="employeeID"
+    [(ngModel)]="employeeService.employee.employeeID"
+    #employeeID="ngModel"
+  />
+
+  <div class="form-group">
+    <label for="fullname">Full Name</label>
+    <input
+      type="text"
+      name="fullname"
+      id="fullname"
+      [(ngModel)]="employeeService.employee.fullName"
+      class="form-control"
+      #fullname="ngModel"
+      required
+    />
+    <div class="text-danger" *ngIf="fullname.touched && fullname.invalid">
+      this field is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="position">Position</label>
+    <input
+      type="text"
+      name="position"
+      id="position"
+      [(ngModel)]="employeeService.employee.position"
+      class="form-control"
+      #position="ngModel"
+      required
+    />
+    <div class="text-danger" *ngIf="position.touched && position.invalid">
+      this field is required
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-6">
+      <label for="empcode">EMP Code</label>
+      <input
+        type="text"
+        name="empcode"
+        id="empcode"
+        [(ngModel)]="employeeService.employee.empCode"
+        class="form-control"
+        #empcode="ngModel"
+        required
+      />
+      <div class="text-danger" *ngIf="empcode.touched && empcode.invalid">
+        this field is required
+      </div>
+    </div>
+
+    <div class="form-group col-6">
+      <label for="mobile">Mobile</label>
+      <input
+        type="number"
+        name="mobile"
+        id="mobile"
+        [(ngModel)]="employeeService.employee.mobile"
+        class="form-control"
+        #mobile="ngModel"
+        required
+      />
+
+      <div class="text-danger" *ngIf="mobile.touched && mobile.invalid">
+        this field is required
+      </div>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-warning btn-block"
+    [disabled]="f.invalid"
+  >
+    SUBMIT
+  </button>
+</form>
